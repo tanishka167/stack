@@ -1,0 +1,106 @@
+def nger(arr):                             #code 1
+    print("NGER : \n")
+    i = 0
+    j = 0
+    res = [0] * len(arr)
+    while (i < len(arr)):
+        j = i + 1
+        while j <= len(arr):
+            if j == len(arr):
+                res[i] = -1
+            elif (arr[j] > arr[i]):
+                res[i] = arr[j]
+                break
+            j += 1
+        i += 1
+    for val in res:
+        print(str(val) + " ")
+
+def ngel(arr):                                  # code 2
+    print("NGEL : \n")
+    arr = list(reversed(arr))
+    i = 0
+    j = 0
+    res = [0] * len(arr)
+    while (i < len(arr)):
+        j = i + 1
+        while j <= len(arr):
+            if j == len(arr):
+                res[i] = -1
+            elif (arr[j] > arr[i]):
+                res[i] = arr[j]
+                break
+            j += 1
+        i += 1
+    res = reversed(res)
+    for val in res:
+        print(str(val) + " ")
+
+def nser(arr):                                            #code 3
+    print("NSER : \n")
+    i = 0
+    j = 0
+    res = [0] * len(arr)
+    while (i < len(arr)):
+        j = i + 1
+        while j <= len(arr):
+            if j == len(arr):
+                res[i] = -1
+            elif (arr[j] < arr[i]):
+                res[i] = arr[j]
+                break
+            j += 1
+        i += 1
+    for val in res:
+        print(str(val) + " ")
+
+def nsel(arr):                                                #code 4
+    print("NSEL : \n")
+    arr = list(reversed(arr))
+    i = 0
+    j = 0
+    res = [0] * len(arr)
+    while (i < len(arr)):
+        j = i + 1
+        while j <= len(arr):
+            if j == len(arr):
+                res[i] = -1
+            elif (arr[j] > arr[i]):
+                res[i] = arr[j]
+                break
+            j += 1
+        i += 1
+    res = reversed(res)
+    for val in res:
+        print(str(val) + " ")
+
+
+
+arr = list(map(int, input("Enter Array : \n").split()))
+nger(arr)
+ngel(arr)
+nser(arr)
+nsel(arr)
+
+
+
+
+
+
+
+                                               #code 5 (Valid parenthesis)
+
+
+
+class Solution:
+    def isValid(self, s: str) -> bool:
+        map = {')':'(', '}':'{', ']':'['}
+        st = []
+        for c in s:
+            if len(st)==0 or not c in map.keys():
+                st.append(c)
+            elif map.get(c)==st[-1]:
+                st.pop()
+            else:
+                st.append(c)
+        return len(st)==0
